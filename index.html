@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toros Ravintola - Heinola</title>
+  <style>
+    :root {
+      --primary: #d97706; /* Warm Amber/Gold */
+      --primary-dark: #b45309;
+      --bg-dark: #111827;
+      --bg-card: #1f2937;
+      --text-light: #f9fafb;
+      --text-muted: #9ca3af;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      padding-bottom: 70px; /* Clearance for fixed bottom nav */
+    }
+
+    /* Mobile Header */
+    header {
+      background-color: #000;
+      padding: 16px;
+      text-align: center;
+      border-bottom: 2px solid var(--primary);
+    }
+
+    .brand-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .brand-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Hero Banner */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
+                  url('https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRzHr3CbqXgRwaRAemLWkSX7yA7yESlG3qLfWCAjJrsh6sZ0CgH6I2_MmQUmwYeJRCXACcOpYAo4L7FgbE') center/cover;
+      padding: 32px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      font-size: 0.95rem;
+      color: #e5e7eb;
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--primary);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    /* Quick Info Cards */
+    .info-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 16px;
+    }
+
+    .info-card {
+      background-color: var(--bg-card);
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      border-left: 3px solid var(--primary);
+    }
+
+    .info-card strong {
+      display: block;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    /* Interactive Menu Section */
+    .section-title {
+      padding: 0 16px;
+      font-size: 1.2rem;
+      margin-top: 16px;
+      margin-bottom: 12px;
+    }
+
+    /* Menu Filters */
+    .menu-tabs {
+      display: flex;
+      overflow-x: auto;
+      gap: 8px;
+      padding: 0 16px 12px 16px;
+      scrollbar-width: none;
+    }
+
+    .tab-btn {
+      background: var(--bg-card);
+      color: var(--text-light);
+      border: 1px solid #374151;
+      padding: 8px 16px;
+      border-radius: 20px;
+      white-space: nowrap;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: #000;
+      font-weight: bold;
+      border-color: var(--primary);
+    }
+
+    /* Menu List */
+    .menu-list {
+      padding: 0 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .menu-item {
+      background: var(--bg-card);
+      padding: 14px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .menu-item-info h3 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .menu-item-info p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .menu-price {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.05rem;
+      margin-left: 12px;
+    }
+
+    /* Fixed Bottom Action Bar */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #000;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      padding: 8px 12px;
+      border-top: 1px solid #374151;
+      z-index: 1000;
+    }
+    .action-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .btn-call {
+      background-color: #16a34a; /* Green */
+      color: white;
+    }
+
+    .btn-nav {
+      background-color: var(--primary);
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand-title">Toros Ravintola</div>
+    <div class="brand-sub">Heinola • Pizzeria & Grill</div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <span class="badge">Lounas Arkisin 11:00 - 15:00</span>
+    <h1>Tervetuloa Herkuttelemaan!</h1>
+    <p>Maittavat pizzat, kebabit ja grilliannokset Heinolan sydämessä.</p>
+  </section>
+
+  <!-- Quick Info -->
+  <section class="info-bar">
+    <div class="info-card">
+      <strong>📍 Osoite</strong>
+      Kauppakatu 17<br>18100 Heinola
+    </div>
+    <div class="info-card">
+      <strong>🕒 Aukioloajat</strong>
+      Ma-To: 10:30 - 21:00<br>
+      Pe-La: 10:30 - 22:00
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <h2 class="section-title">Ruokalista</h2>
+  
+  <div class="menu-tabs">
+    <button class="tab-btn active">Kaikki</button>
+    <button class="tab-btn">Pizzat</button>
+    <button class="tab-btn">Kebabit</button>
+    <button class="tab-btn">Grilliannokset</button>
+  </div>
+
+  <div class="menu-list">
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <h3>Talon Pizza</h3>
+        <p>Kinkku, ananas, aurajuusto, pepperoni</p>
+      </div>
+      <div class="menu-price">12,90 €</div>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <h3>Kebab Ranskalaisilla</h3>
+        <p>Mehevää kebab-lihaa, ranskalaiset, salaatti, kastike</p>
+      </div>
+      <div class="menu-price">11,50 €</div>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <h3>Lehtipihvi</h3>
+        <p>Porsaan ulkofilee, maustevoi, ranskalaiset, lämmin kasvis</p>
+      </div>
+      <div class="menu-price">16,50 €</div>
+    </div>
+  </div>
+
+  <!-- Mobile Fixed Action Bar -->
+  <div class="bottom-bar">
+    <a href="tel:+3583000000" class="action-btn btn-call">
+      📞 Soita & Tilaa
+    </a>
+    <a href="https://maps.google.com/?q=Kauppakatu+17+Heinola" target="_blank" class="action-btn btn-nav">
+      🗺️ Reittiohje
+    </a>
+  </div>
+
+</body>
+</html>

@@ -167,6 +167,17 @@
       font-size: 1.05rem;
       margin-left: 12px;
     }
+/* Kohdistetaan minimileveys ruokalistan hintaelementille */
+.menu-item > div:last-child,
+.price {
+  min-width: 85px;       /* Varmistaa riittävän tilan euron merkille ja luvuille */
+  text-align: right;     /* Pitää hinnat siististi samassa pystylinjassa */
+  font-weight: bold;
+  white-space: nowrap;   /* Estää hinnan ja €-merkin jakautumisen eri riveille */
+  flex-shrink: 0;        /* Estää hinnan puristumisen kasaan mobiilinäytöillä */
+}
+
+
   
     /* Floating Action Button (FAB) */
     .fab-call {

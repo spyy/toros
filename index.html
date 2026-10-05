@@ -210,61 +210,58 @@
       }
     }
 
+    /* Kategoriapainikkeiden säiliö */
+    .menu-categories {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0 30px;
+      flex-wrap: wrap;
+    }
 
-  /* Kategoriapainikkeiden säiliö */
-.menu-categories {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 20px 0 30px;
-  flex-wrap: wrap;
-}
+    /* Painikkeiden tyyli */
+    .cat-btn {
+      background: transparent;
+      border: 2px solid #e53935;
+      color: #e53935;
+      padding: 8px 18px;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
 
-/* Painikkeiden tyyli */
-.cat-btn {
-  background: transparent;
-  border: 2px solid #e53935;
-  color: #e53935;
-  padding: 8px 18px;
-  border-radius: 25px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
+    /* Aktiivinen & Hover-tila */
+    .cat-btn:hover,
+    .cat-btn.active {
+      background-color: #e53935;
+      color: #ffffff;
+    }
 
-/* Aktiivinen & Hover-tila */
-.cat-btn:hover,
-.cat-btn.active {
-  background-color: #e53935;
-  color: #ffffff;
-}
-
-/* Piilotettavat ruokalajit */
-.menu-item.hidden {
-  display: none !important;
-}
+    /* Piilotettavat ruokalajit */
+    .menu-item.hidden {
+      display: none !important;
+    }
 
   </style>
 
-<script>
-  function filterCategory(category, button) {
-    // Vaihdetaan aktiivisen painikkeen tyyli
-    document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
+  <script>
+    function filterCategory(category, button) {
+      // Vaihdetaan aktiivisen painikkeen tyyli
+      document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
 
-    // Suodatetaan näytettävät annokset
-    const items = document.querySelectorAll('.menu-item');
-    items.forEach(item => {
-      if (category === 'all' || item.getAttribute('data-category') === category) {
-        item.classList.remove('hidden');
-      } else {
-        item.classList.add('hidden');
-      }
-    });
-  }
-</script>
-
-
+      // Suodatetaan näytettävät annokset
+      const items = document.querySelectorAll('.menu-item');
+      items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    }
+  </script>
 </head>
 <body>
 
@@ -298,45 +295,41 @@
   <h2 class="section-title">Ruokalista</h2>
   
   <!-- Kategoriakytkimet -->
-<div class="menu-categories">
-  <button class="cat-btn active" onclick="filterCategory('all', this)">Kaikki</button>
-  <button class="cat-btn" onclick="filterCategory('pizza', this)">Pizzat</button>
-  <button class="cat-btn" onclick="filterCategory('kebab', this)">Kebabit</button>
-  <button class="cat-btn" onclick="filterCategory('grilli', this)">Grilliannokset</button>
-</div>
-
-<!-- Ruokalista -->
-<div class="menu-list">
-  
-  <div class="menu-item" data-category="pizza">
-    <div>
-      <h3>Talon Pizza</h3>
-      <p>Kinkku, ananas, aurajuusto, pepperoni</p>
-    </div>
-    <div class="price">12,90 €</div>
+  <div class="menu-tabs">
+    <button class="tab-btn active" onclick="filterCategory('all', this)">Kaikki</button>
+    <button class="tab-btn" onclick="filterCategory('pizza', this)">Pizzat</button>
+    <button class="tab-btn" onclick="filterCategory('kebab', this)">Kebabit</button>
+    <button class="tab-btn" onclick="filterCategory('grilli', this)">Grilliannokset</button>
   </div>
 
-  <div class="menu-item" data-category="kebab">
-    <div>
-      <h3>Kebab Ranskalaisilla</h3>
-      <p>Mehevää kebab-lihaa, ranskalaiset, salaatti, kastike</p>
-    </div>
-    <div class="price">11,50 €</div>
-  </div>
-
-  <div class="menu-item" data-category="grilli">
-    <div>
-      <h3>Lehtipihvi</h3>
-      <p>Porsaan ulkofilee, maustevoi, ranskalaiset, lämmin kasvis</p>
-    </div>
-    <div class="price">16,50 €</div>
-  </div>
-
-</div>
-
-
+  <!-- Ruokalista -->
+  <div class="menu-list">
     
-      
+    <div class="menu-item" data-category="pizza">
+      <div>
+        <h3>Talon Pizza</h3>
+        <p>Kinkku, ananas, aurajuusto, pepperoni</p>
+      </div>
+      <div class="price">12,90 €</div>
+    </div>
+
+    <div class="menu-item" data-category="kebab">
+      <div>
+        <h3>Kebab Ranskalaisilla</h3>
+        <p>Mehevää kebab-lihaa, ranskalaiset, salaatti, kastike</p>
+      </div>
+      <div class="price">11,50 €</div>
+    </div>
+
+    <div class="menu-item" data-category="grilli">
+      <div>
+        <h3>Lehtipihvi</h3>
+        <p>Porsaan ulkofilee, maustevoi, ranskalaiset, lämmin kasvis</p>
+      </div>
+      <div class="price">16,50 €</div>
+    </div>
+
+  </div>
   
 
   <!-- Floating Action Button (FAB) for Call & Order -->

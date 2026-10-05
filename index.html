@@ -210,39 +210,36 @@
       }
     }
 
-/* Kategoriapainikkeet */
-.category-tabs {
+
+  /* Kategoriapainikkeiden säiliö */
+.menu-categories {
   display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
-  overflow-x: auto;
-  padding-bottom: 8px;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0 30px;
+  flex-wrap: wrap;
 }
 
+/* Painikkeiden tyyli */
 .cat-btn {
-  background-color: #f3f4f6;
-  border: 1px solid #e5e7eb;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #374151;
+  background: transparent;
+  border: 2px solid #e53935;
+  color: #e53935;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-weight: bold;
   cursor: pointer;
-  white-space: nowrap;
   transition: all 0.2s ease;
 }
 
-.cat-btn:hover {
-  background-color: #e5e7eb;
-}
-
+/* Aktiivinen & Hover-tila */
+.cat-btn:hover,
 .cat-btn.active {
-  background-color: #111827;
+  background-color: #e53935;
   color: #ffffff;
-  border-color: #111827;
 }
 
-/* Piilotetaan luokat, joita ei ole valittu */
+/* Piilotettavat ruokalajit */
 .menu-item.hidden {
   display: none !important;
 }
@@ -251,11 +248,11 @@
 
 <script>
   function filterCategory(category, button) {
-    // Päivitetään aktiivisen painikkeen tyyli
+    // Vaihdetaan aktiivisen painikkeen tyyli
     document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
     button.classList.add('active');
 
-    // Näytetään/piilotetaan annokset kategorian mukaan
+    // Suodatetaan näytettävät annokset
     const items = document.querySelectorAll('.menu-item');
     items.forEach(item => {
       if (category === 'all' || item.getAttribute('data-category') === category) {
@@ -266,6 +263,7 @@
     });
   }
 </script>
+
 
 </head>
 <body>
@@ -300,7 +298,7 @@
   <h2 class="section-title">Ruokalista</h2>
   
   <!-- Kategoriakytkimet -->
-<div class="category-tabs">
+<div class="menu-categories">
   <button class="cat-btn active" onclick="filterCategory('all', this)">Kaikki</button>
   <button class="cat-btn" onclick="filterCategory('pizza', this)">Pizzat</button>
   <button class="cat-btn" onclick="filterCategory('kebab', this)">Kebabit</button>
@@ -335,6 +333,7 @@
   </div>
 
 </div>
+
 
     
       

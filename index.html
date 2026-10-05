@@ -167,84 +167,48 @@
       font-size: 1.05rem;
       margin-left: 12px;
     }
-
-    /* Fixed Bottom Action Bar */
-    .bottom-bar {
+  
+    /* Floating Action Button (FAB) */
+    .fab-call {
       position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: #000;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      padding: 8px 12px;
-      border-top: 1px solid #374151;
+      bottom: 24px;
+      right: 24px;
       z-index: 1000;
-    }
-    .action-btn {
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 8px;
-      padding: 12px;
-      border-radius: 6px;
+      background-color: #111827; /* Primary call action color */
+      color: #ffffff;
+      padding: 14px 20px;
+      border-radius: 50px;
       text-decoration: none;
-      font-weight: 700;
-      font-size: 0.9rem;
+      font-weight: bold;
+      font-size: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
     }
 
-    .btn-call {
-      background-color: #16a34a; /* Green */
-      color: white;
+    /* Hover & Active States */
+    .fab-call:hover {
+      background-color: #1f2937;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
     }
 
-    .btn-nav {
-      background-color: var(--primary);
-      color: black;
+    .fab-call:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
-/* Floating Action Button (FAB) */
-.fab-call {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background-color: #111827; /* Primary call action color */
-  color: #ffffff;
-  padding: 14px 20px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-}
 
-/* Hover & Active States */
-.fab-call:hover {
-  background-color: #1f2937;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-}
-
-.fab-call:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Compact FAB for extra small screens (optional) */
-@media (max-width: 480px) {
-  .fab-call {
-    bottom: 16px;
-    right: 16px;
-    padding: 12px 16px;
-    font-size: 0.95rem;
-  }
-}
-
+    /* Compact FAB for extra small screens (optional) */
+    @media (max-width: 480px) {
+      .fab-call {
+        bottom: 16px;
+        right: 16px;
+        padding: 12px 16px;
+        font-size: 0.95rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -310,12 +274,61 @@
       <div class="menu-price">16,50 €</div>
     </div>
   </div>
+  <div class="menu-list">
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <h3>Talon Pizza</h3>
+        <p>Kinkku, ananas, aurajuusto, pepperoni</p>
+      </div>
+      <div class="menu-price">12,90 €</div>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <h3>Kebab Ranskalaisilla</h3>
+        <p>Mehevää kebab-lihaa, ranskalaiset, salaatti, kastike</p>
+      </div>
+      <div class="menu-price">11,50 €</div>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <h3>Lehtipihvi</h3>
+        <p>Porsaan ulkofilee, maustevoi, ranskalaiset, lämmin kasvis</p>
+      </div>
+      <div class="menu-price">16,50 €</div>
+    </div>
+  </div>
+  <div class="menu-list">
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <h3>Talon Pizza</h3>
+        <p>Kinkku, ananas, aurajuusto, pepperoni</p>
+      </div>
+      <div class="menu-price">12,90 €</div>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <h3>Kebab Ranskalaisilla</h3>
+        <p>Mehevää kebab-lihaa, ranskalaiset, salaatti, kastike</p>
+      </div>
+      <div class="menu-price">11,50 €</div>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <h3>Lehtipihvi</h3>
+        <p>Porsaan ulkofilee, maustevoi, ranskalaiset, lämmin kasvis</p>
+      </div>
+      <div class="menu-price">16,50 €</div>
+    </div>
+  </div>  
 
   <!-- Floating Action Button (FAB) for Call & Order -->
-<a href="tel:+358XXXXXXXXX" class="fab-call" aria-label="Soita ja Tilaa">
-  📞 <span>Soita &amp; Tilaa</span>
-</a>
-
+  <a href="tel:+358XXXXXXXXX" class="fab-call" aria-label="Soita ja Tilaa">
+    📞 <span>Soita &amp; Tilaa</span>
+  </a>
 
 </body>
 </html>

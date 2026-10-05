@@ -248,7 +248,7 @@
   <script>
     function filterCategory(category, button) {
       // Vaihdetaan aktiivisen painikkeen tyyli
-      document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
 
       // Suodatetaan näytettävät annokset
@@ -300,6 +300,7 @@
     <button class="tab-btn" onclick="filterCategory('pizza', this)">Pizzat</button>
     <button class="tab-btn" onclick="filterCategory('kebab', this)">Kebabit</button>
     <button class="tab-btn" onclick="filterCategory('grilli', this)">Grilliannokset</button>
+    <button class="tab-btn" onclick="filterCategory('lounas', this)">Lounas</button>
   </div>
 
   <!-- Ruokalista -->
@@ -327,6 +328,15 @@
       </div>
       <div class="menu-price">16,50 €</div>
     </div>
+
+    <div class="menu-item" data-category="lounas">
+      <div class="menu-item-info">
+        <h3>Pizzat</h3>
+        <p>3:lla täytteellä</p>
+      </div>
+      <div class="menu-price">10,00 €</div>
+    </div>
+
 
   </div>
   
